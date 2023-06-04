@@ -1,7 +1,7 @@
-<form action="/users" method='POST' accept-charset="UTF-8">
-    <input type="hidden" name='authenticity_token' value='<%= form_authenticity_token %>'>
+<%#<form action="/users" method='POST' accept-charset="UTF-8">%>
+    <%#<input type="hidden" name='authenticity_token' value='<%= form_authenticity_token %>
 
-    <label for="username">Username</label>
+    <%#<label for="username">Username</label>
     <input id='username' name='user[username]' type="text">
 
     <label for="email">Email</label>
@@ -11,4 +11,17 @@
     <input id='password' name='user[password]' type="password">
 
     <input name='commit' type="submit">
-</form>
+</form>%>
+
+<%= form_tag('/users', method: 'post') do %>
+    <%= label_tag(:username, 'Username')%>
+    <%= text_field_tag(:username)%>
+
+    <%= label_tag(:email, 'Email') %>
+    <%= email_field_tag(:email) %>
+
+    <%= label_tag(:passoword, 'Password') %>
+    <%= password_field_tag(:password) %>
+
+    <%= submit_tag 'Submit' %>
+<% end %>
